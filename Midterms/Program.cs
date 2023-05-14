@@ -16,7 +16,8 @@ namespace MidtermsB
             Dictionary<string, List<string>> AddressBook1 = new Dictionary<string, List<string>>();
             List<string> lists = new List<string>();
             string uinput = "";
-            string masterfile = "Masterfile.txt";
+            string masterfile = "";
+            string inifile = "Inifile.txt";
             string[] tempvar = new string[] { };
             string deleteinput = "";
             string choiceinput = "";
@@ -24,36 +25,50 @@ namespace MidtermsB
             bool pog = true;
             int counter = 1;
 
-
-            if (File.Exists(masterfile))
+            if (File.Exists(inifile))
             {
-
-                using (StreamReader sr = new StreamReader(masterfile))
+                using (StreamReader ssr = new StreamReader(inifile))
                 {
                     string line = "";
-                    while ((line = sr.ReadLine()) != null)
+                    while ((line = ssr.ReadLine()) != null)
                     {
-                        lists.Add(line);
-                    }
-
-                }
-
-                for(int x = 0; x < lists.Count; x++)
-                {
-                    using (StreamReader sr = new StreamReader(lists[x] + ".txt"))
-                    {
-                        string lines = "";
-                        List<string> list1 = new List<string>();
-                        while ((lines = sr.ReadLine()) != null)
-                        {
-                            list1.Add(lines);
-                            
-                        }
-                        AddressBook[list1[0]] = list1;
+                        masterfile = line;
                     }
                     
                 }
+                if (File.Exists(masterfile))
+                {
+
+
+                    using (StreamReader sr = new StreamReader(masterfile))
+                    {
+                        string line1 = "";
+                        while ((line1 = sr.ReadLine()) != null)
+                        {
+                            lists.Add(line1);
+                        }
+
+                    }
+
+                    for (int x = 0; x < lists.Count; x++)
+                    {
+                        using (StreamReader sr = new StreamReader(lists[x] + ".txt"))
+                        {
+                            string lines = "";
+                            List<string> list1 = new List<string>();
+                            while ((lines = sr.ReadLine()) != null)
+                            {
+                                list1.Add(lines);
+
+                            }
+                            AddressBook[list1[0]] = list1;
+                        }
+
+                    }
+                }
+
             }
+
 
 
             while (brother)
@@ -110,7 +125,7 @@ namespace MidtermsB
                             Console.WriteLine("Please enter your " + userinputs[x]);
                             uinput1 = Console.ReadLine();
                             userinputs1.Add(uinput1);
-                        }
+                        }   
                         AddressBook[userinputs1[0]] = userinputs1;
 
                         Console.WriteLine("");

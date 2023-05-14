@@ -248,6 +248,8 @@ namespace MidtermsB
                         if (AddressBook.ContainsKey(deleteinput))
                         {
                             AddressBook.Remove(deleteinput);
+                            Console.Clear();
+                            Console.WriteLine("Entry Successfully deleted");
                         }
                         else
                         {
@@ -258,6 +260,8 @@ namespace MidtermsB
                     else
                     {
                         AddressBook.Clear();
+                        Console.Clear();
+                        Console.WriteLine("All of the entries have been deleted");
                     }
 
                 }
@@ -272,6 +276,10 @@ namespace MidtermsB
                             
                         }
 
+                    }
+                    using (StreamWriter ssw = new StreamWriter("Inifile.txt"))
+                    {
+                        ssw.WriteLine("Masterfile.txt");
                     }
                     break;
                 }

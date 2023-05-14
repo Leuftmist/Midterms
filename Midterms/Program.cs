@@ -61,7 +61,7 @@ namespace MidtermsB
                 Console.WriteLine("Input 'A' if you want to add entries to the dictionary");
                 Console.WriteLine("Input 'B' if you want to view the content of the dictionary");
                 Console.WriteLine("Input 'C' if you want to delete an entry in the dictionary");
-                Console.WriteLine("Input any other key if you want to proceed");
+                Console.WriteLine("Input any other key if you want to close the program");
                 uinput = Console.ReadLine();
 
                 if (uinput == "A")
@@ -236,7 +236,8 @@ namespace MidtermsB
                         }
                         else
                         {
-                            Console.WriteLine("Bobo ka ba?");
+                            Console.Clear();
+                            Console.WriteLine("Bruh");
                         }
                     }
                     else
